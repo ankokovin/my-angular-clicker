@@ -5,6 +5,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [],
@@ -15,6 +19,10 @@ import {MatInputModule} from '@angular/material/input';
     MatCheckboxModule,
     MatToolbarModule,
     MatInputModule,
+    MatDividerModule,
+    MatListModule,
+    MatGridListModule,
+    MatTabsModule,
   ],
   exports: [
     BrowserAnimationsModule,
@@ -22,6 +30,10 @@ import {MatInputModule} from '@angular/material/input';
     MatCheckboxModule,
     MatToolbarModule,
     MatInputModule,
+    MatDividerModule,
+    MatListModule,
+    MatGridListModule,
+    MatTabsModule,
   ]
 })
 export class MaterialthingsModule { }
