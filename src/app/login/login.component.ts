@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormControl, FormGroupDirective, NgForm, Validators, FormGroup} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
 import { User } from '../data-classes/user';
@@ -19,13 +19,20 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent implements OnInit {
-
+  form : FormGroup;
   currentUser : User;
   isLoggedIn : boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.currentUser = {"Login":"", "Password":""};
+    this.form = new FormGroup(
+      {
+        "emailFormControl": this.emailFormControl,
+        "passwordFornControls": this.passwordFormControl
+      }
+      );
   }
 
   emailFormControl = new FormControl('', [
@@ -33,11 +40,22 @@ export class LoginComponent implements OnInit {
     Validators.email,
   ]);
 
+  passwordFormControl = new FormControl('',[
+    Validators.required,
+  ]);
+
   matcher = new MyErrorStateMatcher();
 
   logIn(){
-    console.log('logging in');
-    if (mat)
+    if (this.form.valid){
+      console.log('valid');
+      this.currentUser = 
+      {"Login":this.emailFormControl.value, 
+      "Password":this.passwordFormControl.value};
+      console.log(this.currentUser);
+      //TODO pass this.currentUser to LoginControl
+    }else{
+      console.log('invalid');
+    }
   }
-
 }
