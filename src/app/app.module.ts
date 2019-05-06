@@ -12,6 +12,9 @@ import { MaterialthingsModule } from './materialthings/materialthings.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 
+import { GameLoopService } from './game-loop.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [GameLoopService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
