@@ -13,6 +13,7 @@ import { GameWorldInfoComponent } from './game-world-info/game-world-info.compon
 import { GameWorldAscendComponent } from './game-world-ascend/game-world-ascend.component';
 import { GameWorkerInfoComponent } from './game-worker-info/game-worker-info.component';
 
+import { GameLoopService } from '../game-loop.service';
 
 @NgModule({
   declarations: [GameComponent, GameClickComponent, GameStateComponent, GameMenuesComponent, GameWorkersComponent, GameWorldInfoComponent, GameWorldAscendComponent, GameWorkerInfoComponent],
@@ -20,6 +21,10 @@ import { GameWorkerInfoComponent } from './game-worker-info/game-worker-info.com
     CommonModule,
     GameRoutingModule,
     MaterialthingsModule
-  ]
+  ],
+  providers:[
+    GameLoopService
+  ],
+  bootstrap:[GameComponent]
 })
 export class GameModule { }

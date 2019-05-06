@@ -1,5 +1,11 @@
 <mat-tab-group>
-    <mat-tab label="Workers"><app-game-workers [workers]="gameState.workers" (onBought)="tryBought($event)"></app-game-workers></mat-tab>
-    <mat-tab label="World"><app-game-world-info></app-game-world-info> </mat-tab>
-    <mat-tab label="Ascend"><app-game-world-ascend></app-game-world-ascend></mat-tab>
-  </mat-tab-group>
+  <mat-tab label="Workers">
+    <app-game-workers [workers]="workers"></app-game-workers>
+  </mat-tab>
+  <mat-tab label="World">
+    <app-game-world-info></app-game-world-info>
+  </mat-tab>
+  <mat-tab label="Ascend">
+    <app-game-world-ascend></app-game-world-ascend>
+  </mat-tab>
+</mat-tab-group>

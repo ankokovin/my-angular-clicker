@@ -1,20 +1,20 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
+import { GameLoopService } from '../../game-loop.service';
 
 @Component({
   selector: 'app-game-click',
   templateUrl: './game-click.component.html',
-  styleUrls: ['./game-click.component.sass']
+  styleUrls: ['./game-click.component.sass'],
+  
 })
 export class GameClickComponent implements OnInit {
 
-  @Output() onClick = new EventEmitter();
-
   click(){
-    this.onClick.emit();
+    this.gameLoopService.click();
   }
 
-  constructor() { }
+  constructor(private gameLoopService: GameLoopService) { }
 
   ngOnInit() {
   }

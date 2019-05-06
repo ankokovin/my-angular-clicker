@@ -1,5 +1,7 @@
-let incCostFactor = 1.15;
-let incValFactor = 1.1;
+
+//todo: make read from file
+let incCostFactor = 1.3;
+let incValFactor = 1.15;
 
 export class PassiveIncomer{
     id:number;

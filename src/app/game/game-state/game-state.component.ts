@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { GameState } from '../../data-classes/game-state';
+import { GameLoopService } from '../../game-loop.service';
+
 
 @Component({
   selector: 'app-game-state',
@@ -9,11 +10,21 @@ import { GameState } from '../../data-classes/game-state';
 })
 export class GameStateComponent implements OnInit {
 
-  @Input() gameState : GameState;
-
-  constructor() { }
+  constructor(private gameLoopsService: GameLoopService) { }
 
   ngOnInit() {
+  }
+
+  getValue(){
+    return this.gameLoopsService.gameState.value;
+  }
+
+  getPassiveIncome(){
+    return this.gameLoopsService.getPassiveIncome();
+  }
+
+  getClickIncome(){
+    return this.gameLoopsService.getClickIncome();
   }
 
 }

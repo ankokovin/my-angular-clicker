@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { PassiveIncomer } from '../../data-classes/passive-incomer';
 
@@ -12,14 +12,11 @@ import { PassiveIncomer } from '../../data-classes/passive-incomer';
 export class GameWorkersComponent implements OnInit {
 
   @Input() workers : PassiveIncomer[]
-  @Output() onBought = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  tryBought(id:number){
-    this.onBought.emit(id);
-  }
+
 }

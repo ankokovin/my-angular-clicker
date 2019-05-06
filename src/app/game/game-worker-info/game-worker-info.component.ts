@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { GameLoopService } from '../../game-loop.service';
 
 import { PassiveIncomer } from '../../data-classes/passive-incomer';
 
@@ -12,14 +14,13 @@ export class GameWorkerInfoComponent implements OnInit {
 
   @Input() worker: PassiveIncomer;
   
-  @Output() onBought = new EventEmitter<number>();
 
-  constructor() { }
+  constructor(private gameLoopService: GameLoopService) { }
 
   ngOnInit() {
   }
 
   click(){
-    this.onBought.emit(this.worker.id);
+    this.gameLoopService.buy(this.worker.id);
   }
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { GameState } from '../../data-classes/game-state';
+import { GameLoopService } from '../../game-loop.service';
+
+import { PassiveIncomer } from '../../data-classes/passive-incomer';
+
 
 @Component({
   selector: 'app-game-menues',
@@ -10,18 +13,13 @@ import { GameState } from '../../data-classes/game-state';
 export class GameMenuesComponent implements OnInit {
 
 
-  @Input() gameState : GameState;
-
-  @Output() onBought = new EventEmitter<number>();
-
-
-  constructor() { }
+  constructor(private gameLoopService : GameLoopService) { 
+    
+  }
 
   ngOnInit() {
+    this.workers = this.gameLoopService.getWorkers();
   }
 
-
-  tryBought(id:number){
-    this.onBought.emit(id);
-  }
+  workers : PassiveIncomer[];
 }
