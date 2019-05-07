@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
 import { GameState } from './data-classes/game-state';
 import { PassiveIncomer } from './data-classes/passive-incomer';
 
@@ -11,6 +10,8 @@ import { PassiveIncomer } from './data-classes/passive-incomer';
 })
 export class GameLoopService {
 
+  progress : number;
+
   constructor() {}
 
   gameState : GameState;
@@ -20,7 +21,7 @@ export class GameLoopService {
       [
         new PassiveIncomer(1,"me",1,0,10),
         new PassiveIncomer(2,"also me",10,0,200)
-      ], 0
+      ], 1, 0
       );
     this.start();
   }
@@ -45,7 +46,23 @@ export class GameLoopService {
 
 
   click() {
-    this.gameState.value += this.getClickIncome();
+    this.inc(this.getClickIncome()); 
+  }
+
+
+  inc(value:number){
+    let nval = this.gameState.value + value;
+    while(this.gameState.needValue<=nval){
+      this.gameState.energy += 1;
+      nval -= this.gameState.needValue;
+      this.incNeedVal();
+    }
+    this.gameState.value = nval;
+    this.progress = this.gameState.value*100/this.gameState.needValue;
+  }
+
+  incNeedVal(){
+    this.gameState.needValue += 1;
   }
 
   can_buy(id: number) {
@@ -53,14 +70,14 @@ export class GameLoopService {
       function (x) {
         return x.id == id;
       }
-    ).getAddCost() <= this.gameState.value;
+    ).getAddCost() <= this.gameState.energy;
   }
 
 
   buy(id: number) {
     console.log(id);
     if (this.can_buy(id)) {
-      this.gameState.value -= this.gameState.workers.find(
+      this.gameState.energy -= this.gameState.workers.find(
         function (x) {
           return x.id == id;
         }
@@ -69,7 +86,7 @@ export class GameLoopService {
   }
 
   tick() {
-    this.gameState.value += this.getPassiveIncome();
+    this.inc(this.getPassiveIncome());
   }
 
   start() {

@@ -9,6 +9,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -23,6 +24,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatListModule,
     MatGridListModule,
     MatTabsModule,
+    MatProgressBarModule,
   ],
   exports: [
     BrowserAnimationsModule,
@@ -34,6 +36,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatListModule,
     MatGridListModule,
     MatTabsModule,
+    MatProgressBarModule,
   ]
 })
 export class MaterialthingsModule { }
