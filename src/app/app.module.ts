@@ -10,7 +10,7 @@ import { GameModule } from './game/game.module';
 
 import { MaterialthingsModule } from './materialthings/materialthings.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/login.component';
+
 
 import { GameLoopService } from './game-loop.service';
 
@@ -19,7 +19,6 @@ import { GameLoopService } from './game-loop.service';
   declarations: [
     AppComponent,
     MainMenuComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,

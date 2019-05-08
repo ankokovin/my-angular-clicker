@@ -1,19 +1,28 @@
-.game-divider 
-  display: grid
-  grid-template-columns: 1fr 1fr
-  height: 100%
+$grid-start-width: 600px
+  
+#game
+  display: block
+  @media only screen and (min-width: $grid-start-width) 
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 150px auto
+    grid-template-areas: "menues state" "menues click"
+  
 
-.game-divider-right
-  display: grid
-  grid-template-rows: 25% 75%
-  border: 4px double black
 
-.game-divider-right app-game-state
-  border: 4px double black
+  app-game-click
+    grid-area: click
+    display: block
 
-.game-divider-right app-game-click
-  border: 4px double black
+  
+  app-game-state
+    grid-area: state
+    display: block
 
-app-game-menues
-  border: 4px double black
+
+  app-game-menues
+    grid-area: menues
+    display: block
+
+
   
