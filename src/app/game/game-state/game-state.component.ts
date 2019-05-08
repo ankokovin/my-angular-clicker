@@ -15,8 +15,8 @@ export class GameStateComponent implements OnInit {
   ngOnInit() {
   }
 
-  getValue(){
-    return this.gameLoopsService.gameState.value;
+  getEnergy(){
+    return this.gameLoopsService.gameState.energy;
   }
 
   getPassiveIncome(){
@@ -27,4 +27,11 @@ export class GameStateComponent implements OnInit {
     return this.gameLoopsService.getClickIncome();
   }
 
+  getValue(){
+    return this.gameLoopsService.gameState.value;
+  }
+
+  getNextEnergy(){
+    return this.gameLoopsService.gameState.needValue;
+  }
 }

@@ -1,3 +1,17 @@
-<label>Energy: {{getValue()}} </label>
-<label>Passive income: {{getPassiveIncome()}}e/s </label> 
-<label>Click income: {{getClickIncome()}}e</label>
+<mat-list>
+  <h3 mat-subheader>Values:</h3>
+  <mat-list-item>
+    <mat-grid-list cols="2">
+      <label>Energy: {{getEnergy()}} </label>
+      <label>e: {{getValue()}}/{{getNextEnergy()}}</label>
+    </mat-grid-list>
+
+  </mat-list-item>
+  <h3 mat-subheader>Income:</h3>
+  <mat-list-item>
+    <mat-grid-list cols="2">
+      <label>Passive income: {{getPassiveIncome()}}e/s </label>
+      <label>Click income: {{getClickIncome()}}e</label>
+    </mat-grid-list>
+  </mat-list-item>
+</mat-list>
